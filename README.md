@@ -4,7 +4,7 @@
 Personal project developed to showcase my work and skills as a frontend developer.
     
 <div align="center">
-    <img src="" width="800">
+  <img src="https://i.imgur.com/5fScNxe.png" width="800">
 </div>
 
 ## Project description
