@@ -5,7 +5,7 @@ import imgProfile from "../../public/assets/profile.png";
 
 export function Header() {
   return (
-    <header className="flex items-center gap-3 p-6 ">
+    <header className="flex items-center w-[584px] gap-3 p-6 sm:px-0 m-auto">
       <Link href="/" aria-label="Go to home page">
         <Image
           src={imgProfile}
