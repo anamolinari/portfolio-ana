@@ -14,7 +14,7 @@ export function Certificate() {
     {
       id: 10,
       title: "React.js",
-      text: "Experience in React and Next.js, covering everything from SPA development and API integration to Design System creation and application deployment.",
+      text: "Experience in React and Next.js, covering everything from SPA development and API integration to design system creation and application deployment.",
       year: "2024",
       place: "Rocketseat",
     },
@@ -76,8 +76,8 @@ export function Certificate() {
     },
     {
       id: 1,
-      title: "Marketing & Advertising Bacharel Degree",
-      text: "Comprehensive Studies in Marketing Strategies, Advertising Techniques, and Consumer Behavior Analysis.",
+      title: "Bachelor's Degree in Marketing & Advertising",
+      text: "Comprehensive studies in marketing strategies, advertising techniques, and consumer behavior analysis.",
       year: "2015",
       place: "FURB",
     },

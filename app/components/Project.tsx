@@ -24,7 +24,7 @@ const projects: Project[] = [
     image: "/projects/img-bordignon.png",
     type: "React + Next JS",
     description:
-      "Portfolio built from scratch, featuring a modern interface optimized to showcase Lucas Bordignon's work.",
+      "A portfolio built from scratch, featuring a modern interface optimized to showcase Lucas Bordignon's work.",
     tags: ["React", "Next JS", "Tailwind", "TypeScript"],
     linkUrl: "https://github.com/anamolinari/lucas-bdn",
   },
@@ -34,7 +34,7 @@ const projects: Project[] = [
     image: "/projects/img-fire-alert.png",
     type: "React JS",
     description:
-      "Web application to monitor and alert about fires, featuring an intuitive interface, CSS animations, and smooth navigation.",
+      "A web application for monitoring and alerting about fires, featuring an intuitive interface, CSS animations, and smooth navigation.",
     tags: ["React JS", "Styled Components", "React Router DOM", "Keyframes"],
     linkUrl: "https://github.com/anamolinari/fire-alert",
   },
@@ -44,7 +44,7 @@ const projects: Project[] = [
     image: "/projects/img-to-do-list.png",
     type: "HTML + CSS + JS",
     description:
-      "Task management application that allows users to add, update, complete, and remove tasks, with extra features like hiding completed tasks.",
+      "A task management application that allows users to add, update, complete, and remove tasks, with additional features like hiding completed tasks.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/to-do-list",
   },
@@ -54,7 +54,7 @@ const projects: Project[] = [
     image: "/projects/img-guess-the-number.png",
     type: "HTML + CSS + JS",
     description:
-      "A simple number guessing game from 1 to 100, with real-time feedback and a limit of 5 attempts per round.",
+      "A simple number guessing game from 1 to 100, providing real-time feedback and a limit of 5 attempts per round.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/guess-the-number",
   },
@@ -64,7 +64,7 @@ const projects: Project[] = [
     image: "/projects/img-page-link.png",
     type: "HTML + CSS + JS",
     description:
-      "Responsive link page with light/dark theme options, dynamic avatar and background changes, and links set to open in a new tab.",
+      "A responsive link page with light/dark theme options, dynamic avatar and background changes, and links that open in a new tab.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/link-page",
   },
@@ -74,7 +74,7 @@ const projects: Project[] = [
     image: "/projects/img-tic-tac-toe.png",
     type: "React JS",
     description:
-      "An interactive Tic-Tac-Toe game with clickable squares and visual indicators for progress, developed to practice React. Includes a victory scoreboard and reset option.",
+      "An interactive Tic-Tac-Toe game with clickable squares and visual indicators for progress, developed to practice React. It includes a victory scoreboard and a reset option.",
     tags: ["React JS", "CSS"],
     linkUrl: "https://github.com/anamolinari/tic-tac-toe",
   },
