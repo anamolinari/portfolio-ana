@@ -96,6 +96,9 @@ export function Project() {
           slidesPerView={1.1}
           centeredSlides={true}
           loop={true}
+          lazyPreloadPrevNext={1}
+          watchSlidesProgress
+          roundLengths
           className=" w-full  "
         >
           {projects.map((project) => (
