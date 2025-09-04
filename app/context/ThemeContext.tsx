@@ -25,21 +25,23 @@ function getSystem(): Theme {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, _setTheme] = useState<Theme>("light");
 
-  const applyThemeMeta = () => {
-    const bg = getComputedStyle(document.documentElement)
-      .getPropertyValue("--background")
-      .trim();
+  const applyThemeMeta = (t: Theme) => {
     const meta = document.querySelector(
-      'meta[name="theme-color"]'
+      'meta[name="theme-color"]:not([media])'
     ) as HTMLMetaElement | null;
-    if (meta && bg) meta.content = bg;
+
+    if (meta) {
+      meta.content = t === "dark" ? "#2c2826" : "#f0eae7";
+    }
   };
 
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
     const initial = saved === "light" || saved === "dark" ? saved : getSystem();
+
     _setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
+    applyThemeMeta(initial);
   }, []);
 
   const setTheme = (next: Theme) => {
@@ -53,7 +55,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     _setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
-    applyThemeMeta();
+    applyThemeMeta(next);
   };
 
   return (

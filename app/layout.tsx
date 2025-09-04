@@ -16,9 +16,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <head>
@@ -30,7 +28,18 @@ export default function RootLayout({
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta name="theme-color" content="#f0eae7" />
+
+        <meta
+          name="theme-color"
+          content="#f0eae7"
+          media="(prefers-color-scheme: light)"
+        />
+        <meta
+          name="theme-color"
+          content="#2c2826"
+          media="(prefers-color-scheme: dark)"
+        />
+
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -43,6 +52,14 @@ export default function RootLayout({
                       : 'light';
                   }
                   document.documentElement.setAttribute('data-theme', t);
+
+                  var meta = document.querySelector('meta[name="theme-color"]:not([media])');
+                  if (!meta) {
+                    meta = document.createElement('meta');
+                    meta.name = 'theme-color';
+                    document.head.appendChild(meta);
+                  }
+                  meta.setAttribute('content', t === 'dark' ? '#2c2826' : '#f0eae7');
                 } catch (_) {}
               })();
             `,
