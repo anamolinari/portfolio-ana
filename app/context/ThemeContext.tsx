@@ -36,10 +36,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     document.documentElement.setAttribute("data-theme", theme);
   }, [theme]);
 
-  if (!ThemeContext) {
-    throw new Error("ThemeProvider must be used within a ThemeProvider");
-  }
-
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}

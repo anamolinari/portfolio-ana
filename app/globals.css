@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root,
-[data-theme="light"] {
+:root {
   --background: #f0eae7;
   --button: #2c2826;
   --card: #e8e0dc;
@@ -47,7 +46,24 @@
   }
 }
 
-[data-theme="dark"] {
+:root[data-theme="light"] {
+  --background: #f0eae7;
+  --button: #2c2826;
+  --card: #e8e0dc;
+  --subtle: #f0eae7;
+
+  --text-primary: #2c2826;
+  --text-secondary: #736863;
+  --text-subtle: #beb6b2;
+  --text-contrast: #faf6f6;
+
+  --border-primary: #e8e0dc;
+  --border-opaque: rgba(44, 40, 38, 0.15);
+
+  --link: #ee7ca2;
+}
+
+:root[data-theme="dark"] {
   --background: #2c2826;
   --button: #e8e0dc;
   --card: #3d3836;
