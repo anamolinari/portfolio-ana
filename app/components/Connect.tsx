@@ -1,6 +1,6 @@
 export function Connect() {
   return (
-    <div className="py-10 px-6 sm:px-0">
+    <div className="py-10 px-6 sm:px-0 ">
       <h5 className="text-xl leading-4 text-secondary">Connect</h5>
 
       <div className="flex flex-wrap gap-6 mt-6 text-base leading-4 text-tertiary underline sm:flex-row">

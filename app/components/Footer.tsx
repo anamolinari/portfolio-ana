@@ -10,7 +10,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="flex items-center justify-center text-xs leading-4 text-tertiary p-6">
+    <footer className="flex items-center justify-center text-xs leading-4 text-tertiary p-6 ">
       <p>© {currentYear} All rights reserved</p>
       <span>・</span>
       <p>Ana Molinari</p>

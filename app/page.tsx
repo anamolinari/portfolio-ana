@@ -5,8 +5,8 @@ import { Connect } from "./components/Connect";
 
 export default function Home() {
   return (
-    <main>
-      <section className="flex flex-col py-20 px-5 sm:px-0 tracking-tight text-2xl">
+    <main className="sm:overflow-x-visible overflow-x-hidden">
+      <section className="flex flex-col py-20 px-5 tracking-tight text-2xl ">
         <p className="text-secondary">
           Transforming ideas into interactive web experiences.
         </p>

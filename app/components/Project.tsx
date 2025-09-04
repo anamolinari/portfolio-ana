@@ -96,7 +96,7 @@ export function Project() {
           slidesPerView={1.1}
           centeredSlides={true}
           loop={true}
-          className="flex items-center w-full"
+          className=" w-full  "
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id} className="bg-card p-6 rounded-lg">
