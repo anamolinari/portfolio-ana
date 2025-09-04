@@ -142,14 +142,15 @@ export function Project() {
             rel="noopener noreferrer"
             aria-label={`View details for ${project.title}`}
           >
-            <div className="group flex items-center p-4 mb-4 gap-4 bg-card rounded-lg cursor-pointer">
-              <Image
-                src={project.image}
-                width={138}
-                height={104}
-                className=" rounded-[4px] shadow-project sm:group-hover:transform sm:group-hover:-translate-y-1 sm:transition-transform sm:duration-500 sm:ease-in-out"
-                alt={`Image of ${project.title}`}
-              />
+            <div className="group flex items-center p-4 mb-4 gap-4 bg-card rounded-lg cursor-pointer ">
+              <div className="bg-transparent relative w-[200px] h-[140px] shrink-0 overflow-hidden rounded-[4px] sm:group-hover:transform sm:group-hover:-translate-y-1 sm:transition-transform sm:duration-300 sm:ease-in-out">
+                <Image
+                  src={project.image}
+                  fill
+                  className=" rounded-[4px] shadow-project "
+                  alt={`Image of ${project.title}`}
+                />
+              </div>
 
               <div className="text-sm leading-4 tracking-tight">
                 <p className="text-secondary mb-2">{project.title}</p>
