@@ -99,7 +99,7 @@ export function Project() {
           lazyPreloadPrevNext={1}
           watchSlidesProgress
           roundLengths
-          className=" w-full  "
+          className="w-full "
         >
           {projects.map((project) => (
             <SwiperSlide key={project.id} className="bg-card p-6 rounded-lg">
@@ -109,14 +109,16 @@ export function Project() {
                 rel="noreferrer"
                 aria-label={`View details for ${project.title}`}
               >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  layout="responsive"
-                  width={600}
-                  height={400}
-                  className="shadow-project rounded-[4px]"
-                />
+                <div className="relative w-full aspect-[3/2] overflow-hidden rounded-[4px] shadow-project">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 90vw, 600px"
+                  />
+                </div>
+
                 <div className="flex items-center justify-between pt-6 text-base tracking-tight">
                   <p className="text-secondary">{project.title}</p>
                   <p className="text-tertiary">{project.type}</p>
