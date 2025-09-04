@@ -97,6 +97,7 @@ html,
 body {
   max-width: 100%;
   overflow-x: hidden;
+  background: var(--background);
 }
 
 body {
@@ -106,5 +107,19 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@supports (padding: env(safe-area-inset-top)) {
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top);
+    background: var(--background);
+    pointer-events: none;
+    z-index: 50;
   }
 }
