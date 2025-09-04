@@ -33,6 +33,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const initial = saved === "light" || saved === "dark" ? saved : getSystem();
     _setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
+    applyThemeMeta();
   }, []);
   const setTheme = (next: Theme) => {
     const sys = getSystem();

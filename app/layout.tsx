@@ -41,8 +41,6 @@ export default function RootLayout({
                     saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
                   }
                   document.documentElement.setAttribute('data-theme', saved);
-
-                  localStorage.setItem('theme', saved);
                   var meta = document.querySelector('meta[name="theme-color"]');
                   if (meta) meta.setAttribute('content', saved === 'dark' ? '#2c2826' : '#f0eae7');
                 } catch(_) {}
