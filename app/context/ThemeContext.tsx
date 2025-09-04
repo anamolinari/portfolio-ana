@@ -25,6 +25,16 @@ function getSystem(): Theme {
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, _setTheme] = useState<Theme>("light");
 
+  const applyThemeMeta = () => {
+    const bg = getComputedStyle(document.documentElement)
+      .getPropertyValue("--background")
+      .trim();
+    const meta = document.querySelector(
+      'meta[name="theme-color"]'
+    ) as HTMLMetaElement | null;
+    if (meta && bg) meta.content = bg;
+  };
+
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
     const initial = saved === "light" || saved === "dark" ? saved : getSystem();
@@ -43,6 +53,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
     _setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
+    applyThemeMeta();
   };
 
   return (
