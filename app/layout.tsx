@@ -29,34 +29,25 @@ export default function RootLayout({
           content="black-translucent"
         />
 
-        <meta
-          name="theme-color"
-          content="#f0eae7"
-          media="(prefers-color-scheme: light)"
-        />
-        <meta
-          name="theme-color"
-          content="#2c2826"
-          media="(prefers-color-scheme: dark)"
-        />
-
-        <meta name="theme-color" id="theme-color-runtime" content="#f0eae7" />
+        <meta name="theme-color" content="#f0eae7" />
 
         <script
           dangerouslySetInnerHTML={{
             __html: `
-        (function () {
-          try {
-            var t = localStorage.getItem('theme');
-            if (!t) {
-              t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-            }
-            document.documentElement.setAttribute('data-theme', t);
-            var meta = document.getElementById('theme-color-runtime');
-            if (meta) meta.setAttribute('content', t === 'dark' ? '#2c2826' : '#f0eae7');
-          } catch(_) {}
-        })();
-      `,
+              (function () {
+                try {
+                  var saved = localStorage.getItem('theme');
+                  if (!saved) {
+                    saved = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+                  }
+                  document.documentElement.setAttribute('data-theme', saved);
+
+                  localStorage.setItem('theme', saved);
+                  var meta = document.querySelector('meta[name="theme-color"]');
+                  if (meta) meta.setAttribute('content', saved === 'dark' ? '#2c2826' : '#f0eae7');
+                } catch(_) {}
+              })();
+            `,
           }}
         />
       </head>
