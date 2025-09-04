@@ -8,7 +8,6 @@ import React, {
 } from "react";
 
 type Theme = "light" | "dark";
-
 interface ThemeContextType {
   theme: Theme;
   setTheme: (next: Theme) => void;
@@ -22,40 +21,37 @@ function getSystem(): Theme {
     : "light";
 }
 
+function applyThemeMetaFromCSSVar() {
+  const bg = getComputedStyle(document.documentElement)
+    .getPropertyValue("--background")
+    .trim();
+  const meta = document.getElementById(
+    "theme-color-runtime"
+  ) as HTMLMetaElement | null;
+  if (meta && bg) meta.content = bg;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, _setTheme] = useState<Theme>("light");
-
-  const applyThemeMeta = (t: Theme) => {
-    const meta = document.querySelector(
-      'meta[name="theme-color"]:not([media])'
-    ) as HTMLMetaElement | null;
-
-    if (meta) {
-      meta.content = t === "dark" ? "#2c2826" : "#f0eae7";
-    }
-  };
 
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
     const initial = saved === "light" || saved === "dark" ? saved : getSystem();
-
     _setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
-    applyThemeMeta(initial);
+
+    requestAnimationFrame(() => applyThemeMetaFromCSSVar());
   }, []);
 
   const setTheme = (next: Theme) => {
     const sys = getSystem();
-
-    if (next === sys) {
-      localStorage.removeItem("theme");
-    } else {
-      localStorage.setItem("theme", next);
-    }
+    if (next === sys) localStorage.removeItem("theme");
+    else localStorage.setItem("theme", next);
 
     _setTheme(next);
     document.documentElement.setAttribute("data-theme", next);
-    applyThemeMeta(next);
+
+    requestAnimationFrame(() => applyThemeMetaFromCSSVar());
   };
 
   return (
