@@ -15,6 +15,7 @@ interface Project {
   description?: string;
   tags?: string[];
   linkUrl: string;
+  liveUrl?: string;
 }
 
 const projects: Project[] = [
@@ -27,6 +28,7 @@ const projects: Project[] = [
       "A portfolio built from scratch, featuring a modern interface optimized to showcase Lucas Bordignon's work.",
     tags: ["React", "Next JS", "Tailwind", "TypeScript"],
     linkUrl: "https://github.com/anamolinari/lucas-bdn",
+    liveUrl: "https://www.bordignon.co/",
   },
   {
     id: "fire-alert",
@@ -37,6 +39,7 @@ const projects: Project[] = [
       "A web application for monitoring and alerting about fires, featuring an intuitive interface, CSS animations, and smooth navigation.",
     tags: ["React JS", "Styled Components", "React Router DOM", "Keyframes"],
     linkUrl: "https://github.com/anamolinari/fire-alert",
+    liveUrl: "https://fire-alert-six.vercel.app/",
   },
   {
     id: "to-do-list",
@@ -47,6 +50,7 @@ const projects: Project[] = [
       "A task management application that allows users to add, update, complete, and remove tasks, with additional features like hiding completed tasks.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/to-do-list",
+    liveUrl: "https://to-do-list-ana-molinari.vercel.app/",
   },
   {
     id: "guess-the-number",
@@ -57,6 +61,7 @@ const projects: Project[] = [
       "A simple number guessing game from 1 to 100, providing real-time feedback and a limit of 5 attempts per round.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/guess-the-number",
+    liveUrl: "https://guess-the-number-ana-molinar.vercel.app/",
   },
   {
     id: "link-page",
@@ -67,6 +72,7 @@ const projects: Project[] = [
       "A responsive link page with light/dark theme options, dynamic avatar and background changes, and links that open in a new tab.",
     tags: ["HTML", "CSS", "JavaScript"],
     linkUrl: "https://github.com/anamolinari/link-page",
+    liveUrl: "https://link-page-xi.vercel.app/",
   },
   {
     id: "tic-tac-toe",
@@ -77,6 +83,7 @@ const projects: Project[] = [
       "An interactive Tic-Tac-Toe game with clickable squares and visual indicators for progress, developed to practice React. It includes a victory scoreboard and a reset option.",
     tags: ["React JS", "CSS"],
     linkUrl: "https://github.com/anamolinari/tic-tac-toe",
+    liveUrl: "https://tic-tac-toe-eight-beta.vercel.app/",
   },
 ];
 
@@ -87,7 +94,7 @@ export function Project() {
     <>
       <main className="flex flex-col gap-4 py-10 sm:hidden">
         <h2 className="text-lg text-secondary pl-6">
-          Work samples ({numSlides})
+          Selected Work ({numSlides})
         </h2>
 
         <Swiper
@@ -131,7 +138,7 @@ export function Project() {
 
       <main className="hidden sm:flex flex-col items-start justify-center py-10">
         <h1 className="text-xl text-secondary mb-8">
-          Work samples ({numSlides})
+          Selected Work ({numSlides})
         </h1>
 
         {projects.map((project) => (
@@ -155,12 +162,28 @@ export function Project() {
               <div className="text-sm leading-4 tracking-tight">
                 <p className="text-secondary mb-2">{project.title}</p>
                 <p className="text-tertiary mb-3">{project.description}</p>
-                <div className="flex flex-wrap gap-2 text-secondary">
+                <div className="flex flex-wrap gap-2 text-secondary mb-3">
                   {project.tags?.map((tag, tagIndex) => (
                     <p key={tagIndex} className="text-xs inline-block">
                       {tag}
                     </p>
                   ))}
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-xs px-3 py-1 rounded-md bg-button text-contrast">
+                    GitHub
+                  </span>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-xs px-3 py-1 rounded-md border border-current text-tertiary hover:text-secondary transition-colors duration-200"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
